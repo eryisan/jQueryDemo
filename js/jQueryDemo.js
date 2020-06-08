@@ -1,9 +1,15 @@
 $(document).ready(function () {
     var index = 0;
+    // var swiper = function() {
+    //     $("img").eq(index)
+    //     .css({"opacity" : "1"})
+    //     .siblings().css({"opacity" : "0"});
+    // };
     var swiper = function() {
         $("img").eq(index)
-        .css({"opacity" : "1"})
-        .siblings().css({"opacity" : "0"});
+        .stop().fadeIn("slow")
+        .siblings()
+        .stop().fadeOut("slow")
     };
     var init = function() {
         index = 0;
@@ -25,7 +31,7 @@ $(document).ready(function () {
         if(event.keyCode == 37){
             index = index > 0 ? --index :$("a").length-1;
         }else if(event.keyCode == 39){
-            index = index < $("a").length -1 ? ++index:0;
+            index = index < $("a").length -1 ? ++index : 0;
         }else{
             return true;
         }
